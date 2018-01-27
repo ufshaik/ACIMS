@@ -1,0 +1,91 @@
+<%@ page import="java.sql.*"%>
+<%@ page import="java.io.*"%>
+<%@ page import="javax.servlet.http.*"%>
+<%! 
+  Connection con;
+  Class c;
+   String s,s1,rno;
+    Statement st;
+	ResultSet rs=null;
+	int bl1,bl2,bl3,bl4;
+	double per;
+	public String t1;
+	
+	%>
+<% try{
+	 rno=request.getParameter("rno");
+	  blfirsty=request.getParameter("blin1styr");
+	  int b1=Integer.parseInt(blfirsty);
+blsecondy=request.getParameter("blin2ndyr"); 
+int b2=Integer.parseInt(blsecondy);
+blthirdy=request.getParameter("blin3rdyr"); 
+int b3=Integer.parseInt(blthirdy);
+ lfourthy=request.getParameter("blin4thyr"); 
+ int b4=Integer.parseInt(lfourthy);
+	
+   totbls=b1+b2+b3+b4;
+
+ c=Class.forName("sun.jdbc.odbc.JdbcOdbcDriver"); 
+ out.println(".............driver loaded<br>");
+ out.println("get the class name"+c.getName());
+  System.out.println(".............driver loaded"); 
+ con=DriverManager.getConnection("jdbc:odbc:cis","cis","cis"); 
+out.println("..............connection established<br>");
+  System.out.println(".............connection established"); 
+
+st= con.createStatement();
+out.println("..............statement cretaed<br>");
+  System.out.println(".............statement cretaed");
+  
+  
+  s= "select * from studentinfo where rno='"+rno+"'";
+rs=st.executeQuery(s);
+
+while(rs.next())
+		{
+
+  t1=rs.getString(1);
+ 
+   }
+   
+ 
+     out.println("<br>data is getting..........");
+
+	     
+	  
+} 
+catch(Exception e)
+ { e.printStackTrace(); 
+ } 
+   %>
+
+
+<%
+
+  
+  
+  
+  
+  %>
+  <html>
+<body background="bk3.jpg">
+ <form action="backlogsave.jsp">
+ <strong>Roll NO:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+ <input type="text" name="rno" value="<%=t1%>" > <br><br>
+ 
+<strong>backlogs in 1styear:&nbsp;</strong>
+
+ <input type="text" name=" blin1styr" value="<%=bl1%>" > <br><br>
+<strong>backlogs in 2ndyear:</strong>
+ <input type="text" name=" blin2ndtyr" value="<%=bl2%>"> <br><br>
+<strong>backlogs in 3rdyear:</strong>
+<input type="text" name=" blin3rdyr" value="<%=bl3%>" > 
+<br><br>
+<strong>backlogs in 4thyear:</strong>
+<input type="text" name=" blin4thyr" value="<%=bl4%>" > <br><br>
+
+ <strong>totalbacklogs:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+  <input type="text" name="totbls" value="<%=totbls%>"> <br><br><br>
+<input type="submit" value="save"> 
+ </body>
+ </html>

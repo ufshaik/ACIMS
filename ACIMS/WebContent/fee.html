@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<TITLE>FEE RECEIPT</TITLE>
+ <HEAD>
+  <script language="JavaScript">
+  function ChkMandatoryField(F,T)
+{
+			var val= F.value;
+			if(val=="")
+			{
+				alert(T+" is mandatory");
+				return false;
+			}
+}
+function validate()
+		{		
+			var form=document.form1;
+
+	if(ChkMandatoryField(form.name,'Name')==false)
+	return false;
+	if(ChkMandatoryField(form.no,'Roll Number')==false)
+	return false;
+}
+  </script>
+ </HEAD>
+ <BODY>
+ <form name=form1 method=get action=college OnSubmit="return validate()">
+
+ <label style="position:absolute;top=10px;left=300px;"><font size=5 color=blue>RECEIPT</label>
+
+<label style="position:absolute;top=50px;left=250px;"><font size=5 color=blue>Chirala Engeneering College</label>
+
+<label style="position:absolute;top=80px;left=210px;"><font size=4 color=blue>Ramapuram Beach Road,CHIRALA-523 157</label>
+
+<label style="position:absolute;top=150px;left=50px;"><font size=4 color=blue>Name:<input type="text" name="name" size=30>
+</label><br>
+
+<label style="position:absolute;top=180px;left=50px;"><font size=4 color=blue>Branch:
+<select type="text" name="branch" size=1>
+
+<option>CSE</option>
+<option>ECE</option>
+<option>IT</option>
+<option>EEE</option>
+<option>MECH</option>
+<option>E&I</option>
+<option>MCA</option>
+<option>MBA</option>
+</select>
+</label><br>
+
+<label style="position:absolute;top=180px;left=200px;"><font size=4 color=blue>No:<input type="text" name="no" size=10>
+</label><br>
+
+<label style="position:absolute;top=180px;left=350px;"><font size=4 color=blue>year:
+<select type="text" name="year" size=1>
+
+<option>I</option>
+<option>II</option>
+<option>III</option>
+<option>IV</option>
+</select>
+</label><br>
+
+
+<br>
+<label style="position:absolute;top=220px;left=50px;">
+<table width=800 height=250 border=2 >
+
+<tr><td><center><FONT SIZE="4" COLOR=""><b>PARTICULARS</b></FONT></center></td>
+    <td><center><FONT SIZE="4" COLOR=""><b>RS.</b></FONT></center></td>	
+</tr>
+<label style="position:absolute;top=240px;left=80px;">
+<tr><td><center><FONT SIZE="3" COLOR="">TUITION FEE</FONT></center></td>
+<td><center><input type="text" name="tfee" value="00" size=10></center></td>
+</label>
+<tr><td><center><FONT SIZE="3" COLOR="">ADMISSION FEE</FONT></center></td>
+<td><center><input type="text" name="afee" value="00" size=10></center></td>
+</tr>
+<tr><td><center><FONT SIZE="3" COLOR="">CAUTION DEPOSIT</FONT></center></td>
+<td><center><input type="text" name="cdeposit" value="00" size=10></center></td>
+</tr>
+<tr><td><center><FONT SIZE="3" COLOR="">JNTU FEE</FONT></center></td>
+<td><center><input type="text" name="jntufee" value="00" size=10></center></td>
+</tr>
+
+<tr><td><center><FONT SIZE="3" COLOR="">HOSTEL FEE</FONT></center></td>
+<td><center><input type="text" name="hostelfee" value="00" size=10></center></td>
+</tr>
+
+<tr><td><center><FONT SIZE="3" COLOR="">BUS FEE</FONT></center></td>
+<td><center><input type="text" name="busfee" value="00" size=10></center></td>
+</tr>
+<tr><td><center><FONT SIZE="3" COLOR="">PERSONALITY DEVELOPEMENT FEE</FONT></center></td>
+<td><center><input type="text" name="pdfee" value="00" size=10></center></td>
+</tr>
+<tr><td><center><FONT SIZE="3" COLOR="">MISCLENIOUS FEE</FONT></center></td>
+<td><center><input type="text" name="mfee" value="00" size=10></center></td>
+</tr>
+
+</table>
+</label>
+
+<label style="position:absolute;top=520px;left=330px;"><font size=3 color=blue>
+<input type=submit name=submit value=submit></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<label style="position:absolute;top=520px;left=420px;"><font size=3 color=blue><input type=reset value=Cancel></label>
+
+
+<label style="position:absolute;top=500px;left=650px;"><font size=5 color=blue><a href="request.html">GET DETAILS</a></label>
+
+<label style="position:absolute;top=550px;left=650px;"><font size=5 color=blue><a href="dayreport.html">DAY REPORT</a></label>
+
+<label style="position:absolute;top=150px;left=650px;"><font size=5 color=blue><a href="setfee.html">SET FEE</a></label>
+
+<label style="position:absolute;top=110px;left=650px;"><font size=5 color=blue><a href="byreport.html">Branch & Year Report</a></label>
+
+  </BODY>
+</HTML>

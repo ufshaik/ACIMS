@@ -1,0 +1,92 @@
+
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+  
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+
+var linkid=unescape(location.search.substring(1,location.search.length))
+function buildmsg()
+{
+df=document.bldlink
+if(df.fname.value.length<1)
+{
+alert("Please enter your friends name.")
+df.fname.focus()
+return false
+}
+else
+{
+if(df.femail.value.indexOf("@")==-1 ||
+df.femail.value.indexOf(".")==-1 ||
+df.femail.value.indexOf(" ")!=-1 ||
+df.femail.value.length<6)
+{
+alert("The Email address for your friend must have a @ sign,\r a period and be at least 6 characters long.")
+df.femail.focus()
+return false
+}
+else
+{
+if(df.yname.value.length<1)
+{
+alert("Please enter your name.")
+df.yname.focus()
+return false
+}
+else
+{
+document.sndlink.action="mailto:"+df.femail.value+"?subject=BemroseBooth Intelligence Centre link from "+df.yname.value
+document.sndlink.message.value="\r\rHello "+df.fname.value+" I thought you might like to read this article from\rBemroseBooth Intelligence Centre.\r\r "+df.yname.value+" \r\rClick on the link below and find out what it\'s all about!\r\r "+linkid+" \r\r"+df.pmsg.value 
+} 
+}
+} 
+}
+//-->
+</SCRIPT>
+
+ </HEAD>
+
+ <body onLoad="document.bldlink.reset();document.sndlink.reset();document.bldlink.fname.focus()" leftmargin="10" topmargin="0">
+   
+<table width="400" border="0" cellspacing="0" cellpadding="0" height="227">
+<FORM name="bldlink">
+<tr align="center" valign="top"> 
+<td class="emailtitle" colspan="2" height="20">Please enter the following 
+details</td>
+</tr>
+<tr align="center" valign="top"> 
+<td class="emailhd" height="50">Friends name<br>
+<input type="text" size="30" name="fname" style="width:140px;font size:10px">
+</td>
+<td align="center" class="emailhd" height="50">Friends email address<br>
+<input type="text" size="30" name="femail" style="width:140px;font size:10px">
+</td>
+</tr>
+<tr align="left" valign="top"> 
+<td height="50" colspan="2" class="emailhd">Please enter your name <br>
+<input type="text" size="30" name="yname" style="width:140px;font size:10px">
+</td>
+</tr>
+<tr align="left" valign="top"> 
+<td colspan="2" class="emailhd"> Enter your personal message below 
+<textarea name="pmsg" rows="6" cols="60" wrap="hard" onFocus="document.bldlink.pmsg.select()" style="width:300px;font size:11px">Enter a personal message to your friend.</textarea>
+</td>
+</tr>
+</FORM>
+</table>
+<table width="400" border="0" cellspacing="0" cellpadding="0" height="26">
+<FORM name="sndlink" method="post" action="" enctype="text/plain" onSubmit="return buildmsg()" >
+<tr>
+<td align="center" valign="middle"> 
+<INPUT TYPE="hidden" NAME="message"> 
+<INPUT TYPE="submit" VALUE="Send It" style="width:80px;font size:10px"> <INPUT TYPE="reset" VALUE="Clear the form" style="width:80px;font size:10px" onClick="document.bldlink.reset();document.bldlink.fname.focus()"> <input type="button" value="Close Window" onClick="window.close()" style="width:80px;font size:10px">
+</td>
+</tr>
+</FORM>
+</table>
+
+ </BODY>
+</HTML>
+

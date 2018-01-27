@@ -1,0 +1,102 @@
+<html>
+<title>CMIS</title>
+<head>
+<center><font size=16 color=blue><u>employee details form</u></font>
+</center>
+<script language="JavaScript">
+function ChkMandatoryField(F,T)
+{
+			var val= F.value;
+			if(val=="")
+			{
+				alert(T+" is mandatory");
+				return false;
+			}
+}
+function ChkNumField()
+{
+	   var val=parseInt(document.form1.phno.value);
+		if(isNaN(val)==true||val=="")
+		{
+		alert("Please enter valid phone number ");
+		return false;
+		}
+}
+function validate()
+		{		
+			var form=document.form1;
+	if(ChkMandatoryField(form.empid,'employee id')==false)
+	return false;
+	if(ChkMandatoryField(form.phno,'phonenumber')==false)
+	return false;
+	if(ChkNumField()==false)
+	return false;
+}
+</script>
+</head>
+<body background="bk3.jpg"><br>
+<img src="mam.bmp" align="right" width=220 height=200>
+<br>
+   <FORM name=form1 METHOD=get  ACTION=SaveDemo1 >
+<br>
+<strong>Employee id:&nbsp;</strong>
+  	<input name="empid" type="text" size="25">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<strong>Employee name:</strong>
+                 <input name="empname" type="text" size="25"><br><br>
+<strong>Designation:&nbsp;</strong>
+                 <input name="des" type="text" size="25">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <strong> Branch:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+	<select name="branch">
+	<option selected><option>cse
+	<option>it<option>ece<option>eie<option>eee<option>mech</select><br><br>
+<strong>Date of birth:</strong>
+                 <input name="dofbirth" type="date" size="25">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<strong>Date of join:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+                 <input name="dofjoin" type="date" size="25"><br><br>
+<strong>Experience:&nbsp;&nbsp;&nbsp;</strong>
+                 <input name="exp" type="number" size="25">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<strong>Salary:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+                 <input name="sal" type="number" size="25"><br><br>
+<strong>address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+                 <TEXTAREA  name="address" rows="3"  cols="25"></TEXTAREA>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<strong>Phone no:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+                 <input name="phno" type="number" size="25"><br><br>
+ <strong>Comments:&nbsp;&nbsp;&nbsp;</strong>
+	<TEXTAREA name="comments" rows="4" cols="36">
+                 </TEXTAREA>
+<table border=2 width=250 height=200>
+<table style="position:absolute;top=300px;left=750px;"   border=2 width=250 height=250>
+<td><center>
+<input type="submit" name="submit" value="employeecertificates"> <br><br>
+
+<input type="submit" name="submit" value="employeeleaves"> <br><br>
+<input type="submit" name="submit" value="employeesalary"> <br><br>
+</table>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br><br>
+
+<input type="submit" name="submit" value="save"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="submit" name="submit" value="delete"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="submit" name="submit" value="update">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="submit" name="submit" value="show"> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="submit" name="submit" value="showrec"> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<IMG SRC="home.gif" WIDTH="30" HEIGHT="30"  align="center" BORDER="0" ALT="">
+<a href="main.html"><b><i>home</i></b></a>
+
+</center>
+</BODY>
+</HTML>

@@ -1,0 +1,40 @@
+<HTML>
+<TITLE>DAY REPORT</TITLE>
+<HEAD>
+ <script language="JavaScript">
+function ChkMandatoryField(F,T)
+{
+			var val= F.value;
+			if(val=="")
+			{
+				alert(T+" is mandatory");
+				return false;
+			}
+}
+function validate()
+		{		
+			var form=document.form1;
+
+	if(ChkMandatoryField(form.date,'DATE')==false)
+	return false;
+}
+</script>
+</HEAD>
+<BODY>
+<form name=form1 method=get action=report OnSubmit="return validate()">
+<label style="position:absolute;top=50px;left=250px;"><font size=5 color=blue>Chirala Engeneering College</label>
+
+<label style="position:absolute;top=80px;left=210px;"><font size=4 color=blue>Ramapuram Beach Road,CHIRALA-523 157</label>
+
+<label style="position:absolute;top=200px;left=200px;"><font size=4 color=blue>Date:<input type="text" name="date" size=10 >dd/mm/yy</label><br>
+
+<label style="position:absolute;top=380px;left=330px;"><font size=3 color=blue>
+<input type=submit name=submit value=submit></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<label style="position:absolute;top=380px;left=420px;"><font size=3 color=blue><input type=reset value=Cancel></label>
+
+
+</form>
+</head>
+</BODY>
+</HTML>

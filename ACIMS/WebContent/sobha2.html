@@ -1,0 +1,86 @@
+
+<%@ page import="java.sql.*"%>
+<%@ page import="java.io.*"%>
+<%@ page import="javax.servlet.http.*"%>
+ 
+
+This is starting
+<%! 
+  Connection con;
+  Class c;
+   String s,s1,rno;
+    Statement st;
+	ResultSet rs=null;
+	public String t1,t2,t3,t4,t5,t6,t7,t8;
+	
+		
+	
+	%>
+<% try{
+ c=Class.forName("sun.jdbc.odbc.JdbcOdbcDriver"); 
+ out.println(".............driver loaded<br>");
+ out.println("get the class name"+c.getName());
+  System.out.println(".............driver loaded"); 
+ con=DriverManager.getConnection("jdbc:odbc:cis","cis","cis"); 
+out.println("..............connection established<br>");
+  System.out.println(".............connection established"); 
+
+st= con.createStatement();
+out.println("..............statement cretaed<br>");
+  System.out.println(".............statement cretaed");
+
+   session=request.getSession();
+  String rno=(String)session.getAttribute("rno");
+   rno=request.getParameter("rno");
+ 
+  s= "select * from studentinfo where rno='"+rno+"'";
+rs=st.executeQuery(s);
+
+while(rs.next())
+		{
+
+ t1=rs.getString(1);
+ 
+	  t2=rs.getString(2);
+   t3=rs.getString(3);
+      t4=rs.getString(5);
+  
+   }
+   
+ 
+     out.println("<br>data is getting..........");
+
+	     
+	  
+} 
+catch(Exception e)
+ { e.printStackTrace(); 
+ } 
+   %>
+
+ <html>
+<body background="bk3.jpg">
+ <form action="markssave.jsp">
+  <strong>Roll NO:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+ <input type="text" name="rno" value="<%=t1%>" > <br><br>
+  <strong>Student Name:&nbsp;&nbsp;</strong>
+  <input type="text" name="name" value="<%=t2%>"> <br><br>
+ <strong> Branch:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+ <input type="text" name="branch" value="<%=t3%>"> <br><br>
+ <strong>YOfStu:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+ <input type="text" name="yofstu" value="<%=t4%>"> <br><br>
+ <strong>Istyear%:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+ <input type="text" name="Istyr" > <br><br>
+ <strong> IIndyear%:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+ <input type="text" name="IIndyr" > <br><br>
+<strong>IIIrdyear%:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+<input type="text" name="IIIrdyr" > <br><br>
+ <strong> IVthyear%:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+ <input type="text" name="IVthyr" > <br><br><br>
+ <input type="submit" value="save"> 
+
+ </body>
+ </html>
+
+ 
+

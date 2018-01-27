@@ -1,0 +1,74 @@
+<%@ page import="java.sql.*"%>
+<%@ page import="java.io.*"%>
+<%@ page import="javax.servlet.http.*"%>
+ 
+
+This is starting
+<%! 
+  Connection con;
+  Class c;
+   String s,s1,rno;
+    Statement st;
+	ResultSet rs=null;
+	public String t1,t2,t3,t4,t5,t6;
+	
+%>
+<% try{
+ c=Class.forName("sun.jdbc.odbc.JdbcOdbcDriver"); 
+ out.println(".............driver loaded<br>");
+ out.println("get the class name"+c.getName());
+  System.out.println(".............driver loaded"); 
+ con=DriverManager.getConnection("jdbc:odbc:cis","cis","cis"); 
+out.println("..............connection established<br>");
+  System.out.println(".............connection established"); 
+
+st= con.createStatement();
+out.println("..............statement cretaed<br>");
+  System.out.println(".............statement cretaed");
+   session=request.getSession();
+  String rno=(String)session.getAttribute("rno");
+   rno=request.getParameter("rno");
+ 
+  s= "select * from studentinfo where rno='"+rno+"'";
+rs=st.executeQuery(s);
+
+while(rs.next())
+		{
+
+ t1=rs.getString(1);
+ 
+	
+   }
+   
+ 
+     out.println("<br>data is getting..........");
+
+	     
+	  
+} 
+catch(Exception e)
+ { e.printStackTrace(); 
+ } 
+   %>
+
+ <html>
+<body background="bk3.jpg">
+ <form action="backlogsave.jsp">
+  <strong>Roll NO:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+ <input type="text" name="rno" value="<%=t1%>" > <br><br>
+<strong>backlogs in 1styear:&nbsp;&nbsp;&nbsp;&nbsp;</strong> 
+ <input type="text" name="blin1styr" > <br><br>
+  <strong>backlogs in 2ndyear:&nbsp;&nbsp;&nbsp;</strong>
+ <input type="text" name="blin2ndyr" > <br><br>
+<strong>backlogs in 3rdyear:&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+<input type="text" name="blin3rdyr" > <br><br>
+  <strong>backlogs in 4thyear%:</strong>
+ <input type="text" name="blin4thyr" > <br><br><br>
+<input type="submit" value="save"> 
+ </body>
+ </html>
+
+
+ 
+

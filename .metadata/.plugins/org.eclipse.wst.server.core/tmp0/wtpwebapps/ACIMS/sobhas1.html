@@ -1,0 +1,98 @@
+<%@ page import="java.sql.*"%>
+<%@ page import="java.io.*"%>
+<%@ page import="javax.servlet.http.*"%>
+ 
+
+This is starting
+<%! 
+  Connection con;
+  Class c;
+   String s,s1,supplier id;
+    Statement st;
+	ResultSet rs=null;
+	public String t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11;
+	
+		
+	
+	%>
+<% try{
+ c=Class.forName("sun.jdbc.odbc.JdbcOdbcDriver"); 
+ out.println(".............driver loaded<br>");
+ out.println("get the class name"+c.getName());
+  System.out.println(".............driver loaded"); 
+ con=DriverManager.getConnection("jdbc:odbc:cis","cis","cis"); 
+out.println("..............connection established<br>");
+  System.out.println(".............connection established"); 
+
+st= con.createStatement();
+out.println("..............statement cretaed<br>");
+  System.out.println(".............statement cretaed");
+   session=request.getSession();
+  String rno=(String)session.getAttribute("supplierid");
+   rno=request.getParameter("supplierid");
+ 
+  s= "select * from stores where supplierid='"+supplierid+"'";
+rs=st.executeQuery(s);
+
+while(rs.next())
+		{
+
+ t1=rs.getString(1);
+ t2=rs.getString(5);
+   t3=rs.getString(6);
+      t4=rs.getString(10);
+   t5=rs.getString(7);
+ t6=rs.getString(9);
+   t7=rs.getString(12);
+    t8=rs.getString(8);
+	 t9=rs.getString(11);
+   }
+   
+ 
+     out.println("<br>data is getting..........");
+
+	     
+	  
+} 
+catch(Exception e)
+ { e.printStackTrace(); 
+ } 
+   %>
+
+ <html>
+<body background="bk3.jpg">
+ <form action="one.jsp">
+ <strong>supplierid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+ <input type="text" name="supplierid" value="<%=t1%>" > <br><br>
+  <strong>product id:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+  <input type="text" name="product id" value="<%=t2%>"> <br><br>
+   <strong>product name:&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+ <input type="text" name=" product name" value="<%=t3%>"> <br><br>
+   <strong>Type of product:</strong>
+ <input type="text" name=" type of product" value="<%=t4%>"> <br><br>
+ <strong> price:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+ <input type="text" name="price" value="<%=t5%>"> <br><br>
+  <strong>quantity:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;</strong>
+ <input type="text" name="quantity" value="<%=t6%>"> <br><br>
+ <strong>Total Cost:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>
+ <input type="text" name="TotalCost " value="<%=t7%>"> <br><br>
+   <strong>Date of request:&nbsp;</strong>
+ <input type="text" name=" dtofrequest" value="<%=t8%>"> <br><br>
+<strong>date of delivery:&nbsp;</strong>
+ <input type="text" name="dtofrequest" value="<%=t9%>"><br><br>
+ <br>
+<strong>Dept name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+ <input type="text"name="nmofdept" value="<%=t10%>"><br><br>
+ <br>
+ <strong>purpose:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+  <input type="text" name="purpose"value="<%=t11%>"> <br><br><br>
+
+<input type="submit" value=products> <br><br>
+
+ </body>
+ </html>
+
+ 
+

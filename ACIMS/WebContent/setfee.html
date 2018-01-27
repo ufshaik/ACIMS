@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<TITLE>SET FEE</TITLE>
+<HEAD>
+<script language="JavaScript">
+function ChkMandatoryField(F,T)
+{
+			var val= F.value;
+			if(val=="")
+			{
+				alert(T+" is mandatory");
+				return false;
+			}
+}
+function validate()
+		{		
+			var form=document.form1;
+
+	if(ChkMandatoryField(form.no,'Roll Number')==false)
+	return false;
+}
+</script>
+</HEAD>
+<BODY>
+ <form name=form1 method=get action=setfee OnSubmit="return validate()">
+
+ <label style="position:absolute;top=10px;left=300px;"><font size=5 color=blue>RECEIPT</label>
+
+<label style="position:absolute;top=50px;left=250px;"><font size=5 color=blue>Chirala Engeneering College</label>
+
+<label style="position:absolute;top=80px;left=210px;"><font size=4 color=blue>Ramapuram Beach Road,CHIRALA-523 157</label>
+
+<label style="position:absolute;top=140px;left=200px;"><font size=4 color=blue>branch:
+<select type="text" name="branch" size=1>
+
+<option>CSE</option>
+<option>ECE</option>
+<option>IT</option>
+<option>EEE</option>
+<option>MECH</option>
+<option>E&I</option>
+<option>MCA</option>
+<option>MBA</option>
+</select>
+</label><br>
+
+
+<label style="position:absolute;top=180px;left=200px;"><font size=4 color=blue>No:<input type="text" name="no" size=10>
+</label><br>
+
+<label style="position:absolute;top=230px;left=200px;"><font size=4 color=blue>I Year Fee:<input type="text" name="one" value=00 size=10>
+</label><br>
+
+<label style="position:absolute;top=260px;left=200px;"><font size=4 color=blue>II Year Fee:<input type="text" name="two" value=00 size=10>
+</label><br>
+
+<label style="position:absolute;top=290px;left=200px;"><font size=4 color=blue>III Year Fee:<input type="text" name="three" value=00 size=10>
+</label><br>
+
+<label style="position:absolute;top=320px;left=200px;"><font size=4 color=blue>IV Year Fee:<input type="text" name="four" value=00 size=10>
+</label><br>
+
+<label style="position:absolute;top=350px;left=200px;"><font size=4 color=blue>TOTAL NRI FEE:<input type="text" name="nrifee" value=00 size=10>
+</label><br>
+
+<label style="position:absolute;top=520px;left=330px;"><font size=3 color=blue>
+<input type=submit name=submit value=submit></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<label style="position:absolute;top=520px;left=420px;"><font size=3 color=blue><input type=reset value=Cancel></label>
+
+
+</BODY>
+</HTML>

@@ -1,0 +1,85 @@
+<%@ page import="java.sql.*"%>
+<%@ page import="java.io.*"%>
+<%@ page import="javax.servlet.http.*"%>
+ 
+
+This is starting
+<%! 
+  Connection con;
+  Class c;
+   String s,s1,supplier id;
+    Statement st;
+	ResultSet rs=null;
+	public String t1,t2,t3,t4,t5,t6,t7,t8,t9;
+	
+		
+	
+	%>
+<% try{
+ c=Class.forName("sun.jdbc.odbc.JdbcOdbcDriver"); 
+ out.println(".............driver loaded<br>");
+ out.println("get the class name"+c.getName());
+  System.out.println(".............driver loaded"); 
+ con=DriverManager.getConnection("jdbc:odbc:cis","cis","cis"); 
+out.println("..............connection established<br>");
+  System.out.println(".............connection established"); 
+
+st= con.createStatement();
+out.println("..............statement cretaed<br>");
+  System.out.println(".............statement cretaed");
+   session=request.getSession();
+  String rno=(String)session.getAttribute("supplierid");
+   rno=request.getParameter("supplierid");
+ 
+  s= "select * from stores where supplierid='"+supplierid+"'";
+rs=st.executeQuery(s);
+
+while(rs.next())
+		{
+
+ t1=rs.getString(1);
+ t2=rs.getString(2);
+   t3=rs.getString(3);
+      t4=rs.getString(4);
+   t5=rs.getString(13);
+   }
+   
+ 
+     out.println("<br>data is getting..........");
+
+	     
+	  
+} 
+catch(Exception e)
+ { e.printStackTrace(); 
+ } 
+   %>
+
+ <html>
+<body background="bk3.jpg">
+ <form action="one.jsp">
+ <strong>supplierid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+ <input type="text" name="supplierid" value="<%=t1%>" > <br><br>
+  <strong>suppliers name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+  <input type="text" name="suppliername" value="<%=t2%>"> <br><br>
+   <strong>state:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+ <input type="text" name=" state" value="<%=t3%>"> <br><br>
+    <strong>pin no:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+ <input type="text" name="  pinno" value="<%=t4%>"> <br><br>
+  <strong>telephone no:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+ <input type="text" name="telno" value="<%=t5%>"> <br><br>
+ <strong>mobile number:&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+ <input type="text" name="mobileno" value="<%=t6%>"> <br><br>
+ <strong>fax no:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+ <input type="text" name="faxno "  value="<%=t7%>"> <br><br>
+   <strong>email id:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+ <input type="text" name=" emailid" value="<%=t8%>"> <br><br>
+<strong>supplier address:&nbsp;</strong>
+ <input type="text" name="supplieraddress" value="<%=t9%>"> <br><br><br>
+<input type="submit" value=supplier> 
+ </body>
+ </html>
+
+ 
+
